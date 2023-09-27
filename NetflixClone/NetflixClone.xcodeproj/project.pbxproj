@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114A26912AC4843D00F13224 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A26902AC4843D00F13224 /* HeroHeaderUIView.swift */; };
 		11C073B22AACCB4400DCF186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C073B12AACCB4400DCF186 /* AppDelegate.swift */; };
 		11C073B42AACCB4400DCF186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C073B32AACCB4400DCF186 /* SceneDelegate.swift */; };
 		11C073B62AACCB4400DCF186 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C073B52AACCB4400DCF186 /* MainTabBarViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		114A26902AC4843D00F13224 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		11C073AE2AACCB4400DCF186 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C073B12AACCB4400DCF186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11C073B32AACCB4400DCF186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				11C073D32AAD071100DCF186 /* CollectionViewTableViewCell.swift */,
+				114A26902AC4843D00F13224 /* HeroHeaderUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,7 +158,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					11C073AD2AACCB4400DCF186 = {
 						CreatedOnToolsVersion = 14.3;
@@ -200,6 +203,7 @@
 				11C073CB2AACD4B700DCF186 /* SearchViewController.swift in Sources */,
 				11C073C92AACD48200DCF186 /* UpcomingViewController.swift in Sources */,
 				11C073D42AAD071100DCF186 /* CollectionViewTableViewCell.swift in Sources */,
+				114A26912AC4843D00F13224 /* HeroHeaderUIView.swift in Sources */,
 				11C073CD2AACD52100DCF186 /* DownloadsViewController.swift in Sources */,
 				11C073B62AACCB4400DCF186 /* MainTabBarViewController.swift in Sources */,
 				11C073B22AACCB4400DCF186 /* AppDelegate.swift in Sources */,
@@ -258,6 +262,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -318,6 +323,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
