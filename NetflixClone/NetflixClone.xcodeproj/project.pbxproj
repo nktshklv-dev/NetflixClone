@@ -19,6 +19,7 @@
 		11C073CD2AACD52100DCF186 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C073CC2AACD52100DCF186 /* DownloadsViewController.swift */; };
 		11C073D42AAD071100DCF186 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C073D32AAD071100DCF186 /* CollectionViewTableViewCell.swift */; };
 		11F0F0A82AD71621005D8B4B /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F0F0A72AD71621005D8B4B /* APICaller.swift */; };
+		11F0F0AA2AD72072005D8B4B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F0F0A92AD72072005D8B4B /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		11C073CC2AACD52100DCF186 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		11C073D32AAD071100DCF186 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		11F0F0A72AD71621005D8B4B /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		11F0F0A92AD72072005D8B4B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		11C073D02AAD06BA00DCF186 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				11F0F0A92AD72072005D8B4B /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				11C073B62AACCB4400DCF186 /* MainTabBarViewController.swift in Sources */,
 				11C073B22AACCB4400DCF186 /* AppDelegate.swift in Sources */,
 				11C073B42AACCB4400DCF186 /* SceneDelegate.swift in Sources */,
+				11F0F0AA2AD72072005D8B4B /* Movie.swift in Sources */,
 				11C073C72AACD46100DCF186 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
