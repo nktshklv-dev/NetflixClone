@@ -44,7 +44,7 @@ class HeroHeaderUIView: UIView {
         addSubview(downloadButton)
         applyConstraints()
     }
-    
+    //Gradient
     private func addGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
@@ -79,5 +79,4 @@ class HeroHeaderUIView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
