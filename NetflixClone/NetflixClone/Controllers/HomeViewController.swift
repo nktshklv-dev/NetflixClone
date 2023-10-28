@@ -30,7 +30,8 @@ class HomeViewController: UIViewController {
         homeFeedTableView.tableHeaderView = headerView
         
         configurateNavBar()
-        getTrendingMovies()
+//        getTrendingMovies()
+        fetchData()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -66,6 +67,12 @@ class HomeViewController: UIViewController {
             case .failure(let error):
                 print(error)
             }
+        }
+    }
+    
+    private func fetchData() {
+        APICaller.shared.getTrendingTVShows { results in
+            //
         }
     }
 }
