@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let sectionTitles = ["Trending Movies","Popular", "Trending TV", "Top Rated", "Upcoming Movies"]
+    let sectionTitles = ["Trending Movies", "Trending TV","Popular",  "Top Rated", "Upcoming Movies"]
     
     private let homeFeedTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -103,6 +103,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .label
-        header.textLabel?.text = header.textLabel?.text?.lowercased()
+        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()   
     }
 }
