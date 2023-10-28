@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
     }
    //Retreiving trending movies data from api 
     private func getTrendingMovies() {
-        APICaller.shared.getTrendingMovies { results in
+        APICaller.shared.getTrendingMovies { results in 
             switch results {
             case .success(let movies):
                 print(movies)

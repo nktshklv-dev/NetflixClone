@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11264B922AED30B500DFC5BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11264B912AED30B500DFC5BF /* Extensions.swift */; };
 		114A26912AC4843D00F13224 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A26902AC4843D00F13224 /* HeroHeaderUIView.swift */; };
 		11C073B22AACCB4400DCF186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C073B12AACCB4400DCF186 /* AppDelegate.swift */; };
 		11C073B42AACCB4400DCF186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C073B32AACCB4400DCF186 /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11264B912AED30B500DFC5BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		114A26902AC4843D00F13224 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		11C073AE2AACCB4400DCF186 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C073B12AACCB4400DCF186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		11C073D12AAD06D700DCF186 /* Recourses */ = {
 			isa = PBXGroup;
 			children = (
+				11264B912AED30B500DFC5BF /* Extensions.swift */,
 			);
 			path = Recourses;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				114A26912AC4843D00F13224 /* HeroHeaderUIView.swift in Sources */,
 				11C073CD2AACD52100DCF186 /* DownloadsViewController.swift in Sources */,
 				11C073B62AACCB4400DCF186 /* MainTabBarViewController.swift in Sources */,
+				11264B922AED30B500DFC5BF /* Extensions.swift in Sources */,
 				11C073B22AACCB4400DCF186 /* AppDelegate.swift in Sources */,
 				11C073B42AACCB4400DCF186 /* SceneDelegate.swift in Sources */,
 				11F0F0AA2AD72072005D8B4B /* Movie.swift in Sources */,
