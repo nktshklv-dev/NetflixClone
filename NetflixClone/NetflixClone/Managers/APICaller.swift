@@ -57,14 +57,49 @@ class APICaller {
             
             do {
                 let decodedData = try JSONDecoder().decode(TrendingMoviesResponse.self, from: data)
+                print(decodedData)
                 completion(.success(decodedData.results))
             }
             catch {
                 completion(.failure(error))
             }
         }
+        task.resume()
     }
     
+    func getPopular(completion: @escaping(Result<[Movie], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/popular?api_key=\(Constants.APIKey)&language=en-US&page=1") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {return}
+            do {
+                let decodedData = try JSONDecoder().decode(TrendingMoviesResponse.self, from: data)
+                print(decodedData)
+                completion(.success(decodedData.results))
+            }
+            catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
+    
+    func getTopRated(completion: @escaping(Result<[Movie], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/popular?api_key=\(Constants.APIKey)&language=en-US&page=1") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _ , error in
+            guard let data = data, error == nil else {return}
+            
+            do {
+                let decodedData = try JSONDecoder().decode(TrendingMoviesResponse.self, from: data)
+                print(decodedData)
+                completion(.success(decodedData.results))
+            }
+            catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
 }
+
 
 

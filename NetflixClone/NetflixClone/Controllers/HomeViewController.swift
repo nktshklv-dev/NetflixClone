@@ -71,8 +71,8 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchData() {
-        APICaller.shared.getTrendingTVShows { results in
-            //
+        APICaller.shared.getTopRated { results in
+            
         }
     }
 }
