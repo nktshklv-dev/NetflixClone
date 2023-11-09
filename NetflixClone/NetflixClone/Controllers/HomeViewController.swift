@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Sections: Int {
+    case trendingMovies = 0
+    case trendingTV = 1
+    case popular = 2
+    case upcoming = 3
+    case topRated = 4
+}
+
 class HomeViewController: UIViewController {
     
     let sectionTitles = ["Trending Movies", "Trending TV","Popular",  "Top Rated", "Upcoming Movies"]
@@ -22,7 +30,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTableView)
-      
+        
         homeFeedTableView.dataSource = self
         homeFeedTableView.delegate = self
         
@@ -30,8 +38,6 @@ class HomeViewController: UIViewController {
         homeFeedTableView.tableHeaderView = headerView
         
         configurateNavBar()
-//        getTrendingMovies()
-        fetchData()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -58,21 +64,15 @@ class HomeViewController: UIViewController {
         let offset = defaultOffset + scrollView.contentOffset.y
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
-   //Retreiving trending movies data from api 
+    //Retreiving trending movies data from api
     private func getTrendingMovies() {
-        APICaller.shared.getTrendingMovies { results in 
+        APICaller.shared.getTrendingMovies { results in
             switch results {
             case .success(let movies):
                 print(movies)
             case .failure(let error):
                 print(error)
             }
-        }
-    }
-    
-    private func fetchData() {
-        APICaller.shared.getTopRated { results in
-            
         }
     }
 }
@@ -89,6 +89,58 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {return UITableViewCell()}
+        
+        switch indexPath.section {
+        case Sections.trendingMovies.rawValue:
+            APICaller.shared.getTrendingMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configureTitles(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.trendingTV.rawValue:
+            APICaller.shared.getTrendingTVShows { result in
+                switch result {
+                case .success(let titles):
+                    cell.configureTitles(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.popular.rawValue:
+            APICaller.shared.getPopular { result in
+                switch result {
+                case .success(let titles):
+                    cell.configureTitles(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.upcoming.rawValue:
+            APICaller.shared.getUpcomingMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configureTitles(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.topRated.rawValue:
+            APICaller.shared.getTopRated { result in
+                switch result {
+                case .success(let titles):
+                    cell.configureTitles(with: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        default:
+            return UITableViewCell()
+        }
         
         return cell
     }

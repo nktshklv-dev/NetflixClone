@@ -56,7 +56,6 @@ class APICaller {
             
             do {
                 let decodedData = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                print(decodedData)
                 completion(.success(decodedData.results))
             }
             catch {
@@ -72,7 +71,6 @@ class APICaller {
             guard let data = data, error == nil else {return}
             do {
                 let decodedData = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                print(decodedData)
                 completion(.success(decodedData.results))
             }
             catch {
@@ -89,7 +87,6 @@ class APICaller {
             
             do {
                 let decodedData = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                print(decodedData)
                 completion(.success(decodedData.results))
             }
             catch {
