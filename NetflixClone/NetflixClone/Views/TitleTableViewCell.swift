@@ -51,13 +51,18 @@ class TitleTableViewCell: UITableViewCell {
             titlePosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         NSLayoutConstraint.activate(titlePosterUIImageViewConstraints)
+        
+        let titleLabelConstraints = [
+            titleLabel.leadingAnchor.constraint(equalTo: titlePosterUIImageView.trailingAnchor, constant: 20),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ]
+        NSLayoutConstraint.activate(titleLabelConstraints)
     }
     
     public func configure(with model: TitleViewModel) {
         guard let url = URL(string: model.posterURL) else { return }
         titlePosterUIImageView.sd_setImage(with: url, completed: nil)
         titleLabel.text = model.titleName
-        
     }
     
 }
