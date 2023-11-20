@@ -66,7 +66,7 @@ class APICaller {
     }
     
     func getPopular(completion: @escaping(Result<[Title], Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.baseURL)/3/movie/popular?api_key=\(Constants.APIKey)&language=en-US&page=1") else {return}
+        guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=c98312bfa1d1fdae5ebc6c8aac889623&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {return}
             do {
@@ -93,6 +93,27 @@ class APICaller {
                 completion(.failure(APIError.failedToGetData))
             }
         }
+        task.resume()
+    }
+    
+    func getDiscoverMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
+//        guard let url = URL(string: "\(Constants.baseURL)/3/discover/movie?api_key=\(Constants.APIKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
+        guard let url = URL(string: "\(Constants.baseURL)/3/discover/movie?api_key=\(Constants.APIKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
+        print("test")
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                print("error")
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(decodedData.results))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        
         task.resume()
     }
 }
