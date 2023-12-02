@@ -25,7 +25,6 @@ class SearchResultsViewController: UIViewController {
         view.addSubview(searchResultsCollectionView)
         searchResultsCollectionView.delegate = self
         searchResultsCollectionView.dataSource = self
-        
       
     }
     override func viewDidLayoutSubviews() {
