@@ -53,7 +53,7 @@ class TitlePreviewViewController: UIViewController {
         
     }
     
-    func configureConstraints() {
+    private func configureConstraints() {
         let webViewConstraints = [
             webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
