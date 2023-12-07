@@ -19,6 +19,9 @@ class HomeViewController: UIViewController {
     
     let sectionTitles = ["Trending Movies", "Trending TV","Popular",  "Top Rated", "Upcoming Movies"]
     
+    private var randomTrendingMovie: Title?
+    private var headerView: HeroHeaderUIView?
+    
     private let homeFeedTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
@@ -34,14 +37,29 @@ class HomeViewController: UIViewController {
         homeFeedTableView.dataSource = self
         homeFeedTableView.delegate = self
         
-        let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        self.headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTableView.tableHeaderView = headerView
+        configureHeroHeaderView()
         
         configurateNavBar()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTableView.frame = view.bounds
+    }
+    
+    private func configureHeroHeaderView() {
+        APICaller.shared.getTrendingMovies { [weak self] result in
+            switch result {
+            case .success(let titles):
+                self?.randomTrendingMovie = titles.randomElement()
+                guard let selectedTitle = self?.randomTrendingMovie?.title else {return}
+                guard let posterPath = self?.randomTrendingMovie?.poster_path else {return}
+                self?.headerView?.configure(with: TitleViewModel(titleName: selectedTitle, posterURL: posterPath))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     private func configurateNavBar() {
