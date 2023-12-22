@@ -22,4 +22,5 @@ struct Title: Codable {
     let vote_average: Double?
     let vote_count: Int?
     let original_name: String? 
+    let media_type: String?
 }
