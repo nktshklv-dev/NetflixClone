@@ -11,12 +11,12 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel)
 }
 class CollectionViewTableViewCell: UITableViewCell {
-
+    
     static let identifier = "CollectionViewTableViewCell"
     private var titles: [Title] = []
     
     weak var delegate: CollectionViewTableViewCellDelegate?
-
+    
     private var collectionView: UICollectionView = {
         let spacing = NSCollectionLayoutSpacing.fixed(10)
         
@@ -57,7 +57,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     public func configureTitles(with titles: [Title]) {
         self.titles = titles
         DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData() 
+            self?.collectionView.reloadData()
         }
     }
 }
@@ -92,11 +92,23 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 guard let titleOverview = title?.overview else {return}
                 guard let strongSelf = self else {return}
                 let viewModel = TitlePreviewViewModel(title: titleName, YouTubeVideo: videoElement, titleOverview: titleOverview)
-               
+                
                 self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration(
+            identifier: nil,
+            previewProvider: nil) { _ in
+                let downloadAction = UIAction(title: "Download", subtitle: nil, image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                    print("Download tapped")
+                }
+                return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [downloadAction])
+            }
+        return config
     }
 }
