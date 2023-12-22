@@ -77,16 +77,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
                 switch result {
                 case .success(_):
                     print("Deleted from the database")
-                    self?.titles.removeAll()
-                    DataPersistenceManager.shared.fetchingTitlesFromDatabase { [weak self] result in
-                        switch result {
-                        case .success(let titles):
-                            self?.titles = titles
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-
+                    self?.titles.remove(at: indexPath.row)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
